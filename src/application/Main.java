@@ -288,15 +288,7 @@ public class Main extends Application {
         		   System.exit(0);
         	   }
            });
-      
-          
-      
-      
-      
 
-
-
- 
   // Thêm các MenuItem vào Menu.
            	fileMenu.getItems().addAll(newItem, exitItem);
            	editMenu.getItems().addAll(undoItem);
