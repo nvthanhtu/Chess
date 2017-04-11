@@ -148,7 +148,7 @@ public class Main extends Application {
         return root;
 	}
 	
-	 private MoveResult tryMove(Piece piece, int newX, int newY) {
+	 private void tryMove(Piece piece, int newX, int newY) {
 	  /*      if (board[newX][newY].hasPiece() || (newX + newY) % 2 == 0) {
 	            return new MoveResult(MoveType.NONE);
 	        }
@@ -171,24 +171,8 @@ public class Main extends Application {
           
                 int x0 = toBoard(piece.getOldX());
 	        int y0 = toBoard(piece.getOldY());
-                chess.move(x0,y0, newX,newY);
-                    
-                    if(chess.moved){
-                        if(chess.kill){
-                            
-                       //  int x1 = x0 + (newX - x0) / 2;
-                        // int y1 = y0 + (newY - y0) / 2;
-                             return new MoveResult(MoveType.KILL, board[newX][newY].getPiece());
-                        }
-                        else{
-                             return new MoveResult(MoveType.NORMAL);
-                        }
-                    }
-                    else{
-                       return new MoveResult(MoveType.NONE);
-                    }
-                    
-                    
+                chess.move(x0,y0, newX,newY);         
+                
 	       // return new MoveResult(MoveType.NORMAL);
 	    }
 	 
@@ -210,7 +194,20 @@ public class Main extends Application {
               public void update(Observable o, Object arg) {
                   // update the board when boardchess notify
                   
-                  /*chess.resetStatus();
+                    if(chess.moved){
+                        if(chess.kill){
+                            
+                       //  int x1 = x0 + (newX - x0) / 2;
+                        // int y1 = y0 + (newY - y0) / 2;
+                             result =new MoveResult(MoveType.KILL, board[newX][newY].getPiece());
+                        }
+                        else{
+                             result = new MoveResult(MoveType.NORMAL);
+                        }
+                    }
+                    else{
+                       result= new MoveResult(MoveType.NONE);
+                    }
                     //----------------------------------
                     
                     
@@ -259,7 +256,9 @@ public class Main extends Application {
                      }
                     }
                     
-                     textField.setText(affText);*/
+                     textField.setText(affText);
+                     
+                     chess.resetStatus();
               }
           });
           
@@ -415,8 +414,8 @@ public class Main extends Application {
 	            */ // doan nay cua Tu'
                     
                     //------Test------------------------
-                         result = tryMove(piece, newX, newY);
-                         chess.resetStatus();
+                        tryMove(piece, newX, newY);
+                         /*chess.resetStatus();
                     //----------------------------------
                     
                     
@@ -466,7 +465,7 @@ public class Main extends Application {
                      }
                     }
                     
-                     textField.setText(affText);
+                     textField.setText(affText);*/
                     }
 	        });
 
