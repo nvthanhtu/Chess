@@ -1,4 +1,6 @@
-package application;
+package Vue;
+
+
 
 public class MoveResult {
 	

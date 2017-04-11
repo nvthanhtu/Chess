@@ -42,17 +42,21 @@ public class Pawn extends Piece{
                     firstMove=false;
                     return true;
                 }// first move
-                else if(pos.getX()==x && (y-pos.getY()==1) && forward){
+                else if(pos.getX()==x && (y-pos.getY()==1) && forward && !grid[x][y].occupied){
+                    firstMove=false;
                     return true;
                 }// normal move forward
                 
-                else if (pos.getX()==x && (pos.getY()-y==1) && !forward){
+                else if (pos.getX()==x && (pos.getY()-y==1) && !forward && !grid[x][y].occupied){
+                    firstMove=false;
                     return true;
                 }// normal move forward
                 else if(Math.abs(pos.getX()-x)==1 && (y-pos.getY()==1) && grid[x][y].playerNum != PlayerNum  && grid[x][y].occupied && forward){
+                    firstMove=false;
                     return true;
                 }
                 else if(Math.abs(pos.getX()-x)==1 && (pos.getY()-y==1) && grid[x][y].playerNum != PlayerNum && grid[x][y].occupied && !forward){
+                    firstMove=false;
                     return true;
                 }
                 else {

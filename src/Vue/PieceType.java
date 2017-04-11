@@ -1,4 +1,4 @@
-package application;
+package Vue;
 
 public enum PieceType {
 	

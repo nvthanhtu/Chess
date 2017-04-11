@@ -1,5 +1,6 @@
-package application;
+package Vue;
 
+import application.Main;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
